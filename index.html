@@ -2,124 +2,159 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#050505">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إيوان | IWAN VIP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;500;700&display=swap');
-        
-        body { 
-            font-family: 'Noto Kufi Arabic', sans-serif; 
-            background-color: #050505; 
-            color: #C5A059; 
-            margin: 0; 
-            /* منع التمرير المطاطي للمتصفح */
-            overflow: hidden; 
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
-
+        body { font-family: 'Noto Kufi Arabic', sans-serif; background-color: #050505; color: #C5A059; overflow: hidden; margin: 0; }
         .gold-bg { background: linear-gradient(135deg, #C5A059 0%, #8E6D3B 100%); }
         .glass { background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(197, 160, 89, 0.15); }
-        
-        /* ضبط الحاوية لتشغل الشاشة كاملة بدون إطارات صناعية */
-        #app-wrapper {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            /* دعم المساحات الآمنة في الآيفون (النوتش ومنطقة السحب) */
-            padding-top: env(safe-area-inset-top);
-            padding-bottom: env(safe-area-inset-bottom);
-        }
-
-        .view-container { flex: 1; overflow-y: auto; padding: 1.5rem; }
-        
-        /* تحسين مظهر شريط التنقل السفلي ليكون ملتصقاً بالأسفل تماماً */
-        #bottom-nav {
-            height: 80px;
-            display: flex;
-            justify-content: around;
-            align-items: center;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(15px);
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            padding-bottom: env(safe-area-inset-bottom);
-        }
-
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; opacity: 0.5; transition: 0.3s; }
-        .nav-item.active { opacity: 1; color: #C5A059; }
-
-        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        .nav-item.active { color: #C5A059; border-top: 2px solid #C5A059; }
+        .secure-shimmer { background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent); background-size: 200% 100%; animation: shimmer 3s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
+<body class="flex justify-center items-center min-h-screen">
 
-    <div id="app-wrapper">
+    <div id="app-frame" class="w-full max-w-[390px] h-[844px] bg-black rounded-[3rem] overflow-hidden relative shadow-2xl border-[6px] border-neutral-900">
         
-        <div id="screen-auth" class="absolute inset-0 z-[100] flex flex-col items-center justify-center bg-black px-10">
-            <div class="text-center mb-12">
-                <div class="w-20 h-20 border border-[#C5A059] rounded-2xl mx-auto flex items-center justify-center mb-4">
-                    <span class="text-4xl">إ</span>
+        <div id="screen-auth" class="absolute inset-0 z-[100] flex flex-col items-center justify-between py-24 px-10 bg-black">
+            <div class="text-center fade-in">
+                <div class="w-24 h-24 border border-[#C5A059] rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(197,160,89,0.2)]">
+                    <span class="text-5xl font-light">إ</span>
                 </div>
-                <h1 class="text-2xl font-bold tracking-[0.2em]">إيوان</h1>
+                <h1 class="text-3xl font-bold tracking-[0.2em] mb-1">إيوان</h1>
+                <p class="text-[10px] tracking-[0.4em] opacity-50">I W A N</p>
             </div>
-            <button onclick="unlockApp()" class="w-full py-4 gold-bg text-black font-bold rounded-xl shadow-lg active:scale-95 transition-transform">
-                فتح البوابة الرقمية
-            </button>
+
+            <div onclick="unlockApp()" class="flex flex-col items-center cursor-pointer group">
+                <div class="w-20 h-20 rounded-full border border-[#C5A059]/30 flex items-center justify-center mb-4 transition-all group-hover:border-[#C5A059]">
+                    <svg class="w-10 h-10 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0112 3v8m0 0h8m-8 0a10.003 10.003 0 00-7.75 4.34l-.054.09m12.74-4.43A10.003 10.003 0 0012 3v8z"></path>
+                    </svg>
+                </div>
+                <p class="text-xs opacity-70">المصادقة عبر Face ID</p>
+            </div>
+            <p class="text-[9px] opacity-30 tracking-widest">تشفير سيادي • خوادم محلية</p>
         </div>
 
-        <div id="main-app" class="hidden flex-1 flex flex-col h-full">
+        <div id="main-content" class="hidden h-full flex flex-col pt-12">
             
-            <main class="view-container">
-                <div id="view-home" class="view fade-in">
-                    <header class="mb-8">
-                        <p class="text-xs opacity-50">مرحباً بك،</p>
-                        <h2 class="text-2xl font-bold text-white uppercase">أصحاب السعادة</h2>
-                    </header>
+            <div id="view-home" class="view flex-col px-6 fade-in h-full overflow-y-auto">
+                <header class="mb-8">
+                    <p class="text-xs opacity-50 mb-1">مرحباً بك،</p>
+                    <h2 class="text-2xl font-bold text-white uppercase">أصحاب السعادة</h2>
+                </header>
 
-                    <div class="glass p-5 rounded-2xl mb-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            <span class="text-[10px] font-bold">موجز استراتيجي - حي</span>
-                        </div>
-                        <h3 class="text-white text-sm font-bold">تحديث الأسواق العالمية</h3>
-                        <p class="text-[11px] opacity-70 mt-2">تنامي الفرص في قطاع التقنية المالية السعودي..</p>
+                <div class="glass p-5 rounded-2xl mb-6 secure-shimmer">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        <span class="text-[10px] font-bold">موجز استراتيجي - حي</span>
                     </div>
+                    <h3 class="text-white text-sm font-bold mb-2">تحديث الأسواق العالمية</h3>
+                    <p class="text-[11px] opacity-70 leading-relaxed">تنامي الفرص في قطاع التقنية المالية السعودي بعد إطلاق المبادرات المركزية الأخيرة..</p>
+                </div>
 
-                    <div class="space-y-4">
-                        <p class="text-[10px] tracking-widest opacity-40 uppercase">الوصول السريع</p>
-                        <div class="glass p-4 rounded-xl flex justify-between items-center">
-                            <span class="text-sm text-white font-bold">خزينة الفرص</span>
-                            <span class="text-xs">←</span>
+                <div class="space-y-4 pb-24">
+                    <p class="text-[10px] tracking-widest opacity-40 uppercase">الوصول السريع</p>
+                    <div onclick="switchView('vault')" class="glass p-4 rounded-xl flex justify-between items-center cursor-pointer">
+                        <div>
+                            <h4 class="text-white text-sm font-bold">خزينة الفرص</h4>
+                            <p class="text-[9px] opacity-50">3 صفقات قيد التغطية</p>
                         </div>
-                        <div class="glass p-4 rounded-xl flex justify-between items-center">
-                            <span class="text-sm text-white font-bold">المجلس (Discussion)</span>
-                            <span class="text-xs">←</span>
+                        <span class="text-gold-text">←</span>
+                    </div>
+                    <div onclick="switchView('majlis')" class="glass p-4 rounded-xl flex justify-between items-center cursor-pointer">
+                        <div>
+                            <h4 class="text-white text-sm font-bold">المجلس (Discussion)</h4>
+                            <p class="text-[9px] opacity-50">نقاش جاري حول "مستقبل CBDC"</p>
+                        </div>
+                        <span class="text-gold-text">←</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-vault" class="view hidden flex-col px-6 fade-in h-full overflow-y-auto">
+                <h2 class="text-xl font-bold text-white mb-6">الخزينة الاستثمارية</h2>
+                <div class="space-y-6 pb-24">
+                    <div class="glass rounded-3xl overflow-hidden">
+                        <div class="h-40 bg-[url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=400')] bg-cover bg-center"></div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-gold-bg text-black text-[9px] px-2 py-1 rounded">عقار فاخر</span>
+                                <span class="text-[10px] text-green-500 font-bold">مفتوح</span>
+                            </div>
+                            <h3 class="text-white font-bold mb-4">مشروع أبراج موناكو - الواجهة</h3>
+                            <div class="flex justify-between text-center border-t border-white/10 pt-4">
+                                <div><p class="text-[8px] opacity-50">الحد الأدنى</p><p class="text-[11px] font-bold">$2.5M</p></div>
+                                <div><p class="text-[8px] opacity-50">العائد</p><p class="text-[11px] font-bold text-green-500">18.4%</p></div>
+                                <div><p class="text-[8px] opacity-50">المدة</p><p class="text-[11px] font-bold italic">5 سنوات</p></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
 
-            <nav id="bottom-nav">
-                <button class="nav-item active">
-                    <span class="text-xl">🏛️</span>
-                    <span class="text-[9px] mt-1">الرئيسية</span>
+            <div id="view-majlis" class="view hidden flex-col px-6 fade-in h-full">
+                <h2 class="text-xl font-bold text-white mb-2">المجلس</h2>
+                <p class="text-[10px] opacity-50 mb-6">حوارات مغلقة بين الأعضاء المعتمدين</p>
+                
+                <div class="space-y-3 overflow-y-auto pb-24">
+                    <div onclick="switchView('chat')" class="glass p-4 rounded-2xl cursor-pointer hover:border-[#C5A059]">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] gold-text font-bold">نشط الآن</span>
+                            <span class="text-[9px] opacity-40">١٤ عضو مشارك</span>
+                        </div>
+                        <h4 class="text-white text-sm font-bold">مستقبل الاستثمار في الذكاء الاصطناعي</h4>
+                        <p class="text-[10px] opacity-60 mt-1 italic">آخر تعليق: "أتفق مع وجهة النظر بخصوص التشريعات.."</p>
+                    </div>
+
+                    <div class="bg-[#C5A059]/5 border border-[#C5A059]/20 p-4 rounded-2xl">
+                        <div class="flex gap-3 items-center">
+                            <span class="text-xl">🛡️</span>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">نظام التزكية (Tazkiyah)</h4>
+                                <p class="text-[9px] opacity-60">بانتظار تزكيتك لعضو جديد مرشح..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-chat" class="view hidden flex flex-col h-full bg-black">
+                <div class="p-4 border-b border-white/10 flex items-center gap-3">
+                    <button onclick="switchView('majlis')" class="text-xl">←</button>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">مجلس الذكاء الاصطناعي</h4>
+                        <p class="text-[8px] text-green-500 uppercase tracking-tighter italic">محادثة مشفرة تقنياً</p>
+                    </div>
+                </div>
+                <div class="flex-1 p-4 space-y-4 overflow-y-auto text-[11px]">
+                    <div class="bg-neutral-900 p-3 rounded-2xl rounded-br-none ml-10">
+                        <p class="font-bold text-[9px] mb-1">أحد الأعضاء المؤسسين:</p>
+                        <p class="opacity-80">ما هو رأيكم في التوجه الجديد للصناديق السيادية نحو التقنيات الناشئة؟</p>
+                    </div>
+                    <div class="bg-[#C5A059]/20 border border-[#C5A059]/30 p-3 rounded-2xl rounded-bl-none mr-10">
+                        <p class="opacity-90">الفرصة تكمن في الربط بين الأنظمة البنكية التقليدية و الـ Web3، وهذا ما نسعى لتوفيره.</p>
+                    </div>
+                </div>
+                <div class="p-4 bg-neutral-900/50">
+                    <div class="bg-black border border-white/10 rounded-full px-4 py-2 text-[10px] opacity-50">اكتب رسالتك بخصوصية..</div>
+                </div>
+            </div>
+
+            <nav id="bottom-nav" class="absolute bottom-0 w-full glass h-20 flex justify-around items-center px-4 rounded-t-3xl border-t border-[#C5A059]/20">
+                <button onclick="switchView('home')" class="nav-item flex flex-col items-center opacity-70">
+                    <span class="text-lg">🏛️</span><span class="text-[9px] mt-1">الرئيسية</span>
                 </button>
-                <button class="nav-item">
-                    <span class="text-xl">💎</span>
-                    <span class="text-[9px] mt-1">الخزينة</span>
+                <button onclick="switchView('vault')" class="nav-item flex flex-col items-center opacity-70">
+                    <span class="text-lg">💎</span><span class="text-[9px] mt-1">الخزينة</span>
                 </button>
-                <button class="nav-item">
-                    <span class="text-xl">🤝</span>
-                    <span class="text-[9px] mt-1">المجلس</span>
+                <button onclick="switchView('majlis')" class="nav-item flex flex-col items-center opacity-70">
+                    <span class="text-lg">🤝</span><span class="text-[9px] mt-1">المجلس</span>
                 </button>
             </nav>
         </div>
@@ -127,15 +162,31 @@
 
     <script>
         function unlockApp() {
-            document.getElementById('screen-auth').style.display = 'none';
-            document.getElementById('main-app').classList.remove('hidden');
+            const auth = document.getElementById('screen-auth');
+            auth.style.opacity = '0';
+            auth.style.transform = 'scale(1.1)';
+            auth.style.transition = 'all 0.8s ease-in-out';
+            setTimeout(() => {
+                auth.classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
+            }, 800);
         }
 
-        // منع سحب الصفحة للأسفل لتحديثها (Pull to Refresh) في سفاري
-        document.addEventListener('touchmove', function(e) {
-            if (e.target.closest('.view-container')) return;
-            e.preventDefault();
-        }, { passive: false });
+        function switchView(viewId) {
+            // إخفاء كل الواجهات
+            document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('flex'));
+            
+            // إظهار الواجهة المطلوبة
+            const activeView = document.getElementById('view-' + viewId);
+            activeView.classList.remove('hidden');
+            activeView.classList.add('flex');
+
+            // التحكم في ظهور شريط التنقل (إخفاؤه في الشات لزيادة المساحة)
+            const nav = document.getElementById('bottom-nav');
+            if (viewId === 'chat') nav.classList.add('hidden');
+            else nav.classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
