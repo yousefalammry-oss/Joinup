@@ -102,32 +102,36 @@
             box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
         }
 
-        /* Profile/Charter Styles */
+        /* Profile/Charter Styles - Quiet Luxury */
         .charter-watermark {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 6rem;
+            font-size: 5rem;
             font-weight: 900;
-            opacity: 0.03;
+            opacity: 0.025;
             text-align: center;
             pointer-events: none;
             z-index: 0;
             white-space: nowrap;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.15em;
+            color: rgba(197, 160, 89, 0.1);
         }
 
         .charter-card {
             position: relative;
             overflow: hidden;
             animation: slideUp 0.7s ease-out forwards;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(15, 15, 15, 0.9) 100%);
+            backdrop-filter: blur(20px);
         }
 
         .charter-card:hover {
-            border-color: rgba(197, 160, 89, 0.5);
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
+            border-color: rgba(197, 160, 89, 0.25);
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.1);
             transform: translateY(-2px);
         }
 
@@ -140,44 +144,118 @@
             height: 100%;
         }
 
-        .charter-header {
+        .charter-title {
             text-align: right;
-            margin-bottom: 6px;
+            margin-bottom: 16px;
+        }
+
+        .charter-title-main {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .charter-title-sub {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            color: rgba(197, 160, 89, 0.6);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .charter-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.15), transparent);
+            margin: 20px 0;
+        }
+
+        .charter-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: right;
+            margin: 16px 0;
+        }
+
+        .charter-detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .charter-detail-label {
+            color: rgba(197, 160, 89, 0.5);
+        }
+
+        .charter-detail-value {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: left;
+            max-width: 60%;
         }
 
         .charter-footer {
             text-align: left;
-            padding-top: 6px;
+            padding-top: 12px;
             border-top: 1px solid rgba(197, 160, 89, 0.1);
             font-family: 'Courier New', monospace;
         }
 
-        .seal-glow {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(197, 160, 89, 0.05) 100%);
-            border: 2px solid rgba(197, 160, 89, 0.3);
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.15);
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            margin-right: 8px;
+        .charter-footer-text {
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: rgba(197, 160, 89, 0.3);
+            line-height: 1.6;
         }
 
-        .premium-badge {
-            background: linear-gradient(135deg, rgba(197, 160, 89, 0.15) 0%, rgba(197, 160, 89, 0.05) 100%);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
+        .quiet-luxury-header {
+            text-align: right;
+            margin-bottom: 24px;
+        }
+
+        .quiet-luxury-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: rgba(197, 160, 89, 0.8);
+            margin: 0;
+        }
+
+        .privilege-card {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            text-align: right;
+            line-height: 1.6;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .privilege-card:hover {
+            background: rgba(197, 160, 89, 0.08);
+            border-color: rgba(197, 160, 89, 0.25);
+        }
+
+        .privilege-icon {
             display: inline-block;
-            margin-top: 8px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.2) 0%, rgba(197, 160, 89, 0.05) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            font-size: 0.65rem;
+            color: rgba(197, 160, 89, 0.6);
         }
     </style>
 </head>
@@ -292,7 +370,7 @@
 
         <div id="main-content" class="hidden h-full flex flex-col pt-12">
             
-            <div id="view-home" class="view flex-col px-6 fade-in h-full overflow-y-auto">
+            <div id="view-home" class="view flex flex-col px-6 fade-in h-full overflow-y-auto">
                 <header class="mb-8 flex justify-between items-start">
                     <div>
                         <p class="text-xs opacity-50 mb-1">مرحباً بك،</p>
@@ -427,69 +505,76 @@
                 </div>
             </div>
 
-            <!-- Profile/Charter View -->
+            <!-- Profile/Charter View - Quiet Luxury Design -->
             <div id="view-profile" class="view hidden flex-col px-6 fade-in h-full overflow-y-auto">
-                <div class="flex items-center justify-between mb-8">
-                    <h2 class="text-xl font-bold text-white tracking-widest uppercase">صك الوجاهة</h2>
+                <div class="quiet-luxury-header flex items-center justify-between mb-12">
                     <button onclick="switchView('home')" class="w-8 h-8 rounded-full border border-[#C5A059]/30 flex items-center justify-center hover:border-[#C5A059] hover:bg-[#C5A059]/10 transition-all text-sm">←</button>
+                    <h2 class="quiet-luxury-title">صك الوجاهة</h2>
                 </div>
 
-                <!-- Charter Card -->
-                <div class="charter-card glass rounded-3xl relative overflow-hidden mb-12 p-8">
+                <!-- Charter Card - Quiet Luxury -->
+                <div class="charter-card rounded-3xl p-10 mb-12">
                     <!-- Watermark Background -->
-                    <div class="charter-watermark">إيوان</div>
+                    <div class="charter-watermark">FOUNDER</div>
 
                     <!-- Main Content -->
                     <div class="charter-content">
-                        <!-- Header Section -->
-                        <div class="charter-header">
-                            <div class="flex items-center justify-end gap-3 mb-4">
-                                <div class="text-right">
-                                    <p class="text-[9px] opacity-50 uppercase tracking-widest mb-1">فئة العضوية</p>
-                                    <h3 class="text-2xl font-bold text-white">عضو مؤسس</h3>
-                                </div>
-                                <div class="seal-glow">⟡</div>
-                            </div>
-                        </div>
-
-                        <!-- Premium Badge -->
-                        <div class="premium-badge">
-                            المستوى الأعلى من الوجاهة والاستثمار
+                        <!-- Title Section -->
+                        <div class="charter-title">
+                            <p class="charter-title-sub">فئة العضوية</p>
+                            <p class="charter-title-main">عضو مؤسس</p>
                         </div>
 
                         <!-- Divider -->
-                        <div class="h-px bg-gradient-to-r from-transparent via-[#C5A059]/20 to-transparent my-6"></div>
+                        <div class="charter-divider"></div>
 
                         <!-- Details Section -->
-                        <div class="space-y-3 text-right text-[9px]">
-                            <div class="flex justify-between">
-                                <span class="opacity-60">الحالة:</span>
-                                <span class="text-[#C5A059] font-bold">نشط ومفعّل</span>
+                        <div class="charter-details">
+                            <div class="charter-detail-item">
+                                <div class="charter-detail-value">نشط ومفعّل</div>
+                                <span class="charter-detail-label">الحالة:</span>
                             </div>
-                            <div class="flex justify-between">
-                                <span class="opacity-60">الصلاحيات:</span>
-                                <span class="opacity-80">استثمار كامل • تزكية عضوية • تصويت</span>
+                            <div class="charter-detail-item">
+                                <div class="charter-detail-value">استثمار كامل • تزكية • تصويت</div>
+                                <span class="charter-detail-label">الصلاحيات:</span>
                             </div>
-                            <div class="flex justify-between">
-                                <span class="opacity-60">الأمان:</span>
-                                <span class="text-green-400 font-bold">تشفير سيادي من الدرجة العليا</span>
+                            <div class="charter-detail-item">
+                                <div class="charter-detail-value" style="color: rgba(74, 222, 128, 0.8);">تشفير سيادي من الدرجة العليا</div>
+                                <span class="charter-detail-label">الأمان:</span>
                             </div>
                         </div>
 
+                        <!-- Divider -->
+                        <div class="charter-divider"></div>
+
                         <!-- Footer/Serial Section -->
                         <div class="charter-footer">
-                            <p class="text-[7px] opacity-40 font-mono tracking-wider">ID: IWAN-FOUNDER-2026-0001 | ENC: E3F300B</p>
+                            <p class="charter-footer-text">ID: IWAN-FOUNDER-2026-0001</p>
+                            <p class="charter-footer-text">ENC: E3F300B • ISSUED: 27.04.2026</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Additional Info Card -->
-                <div class="glass rounded-2xl p-4 mb-8">
-                    <div class="flex items-start gap-3">
-                        <span class="text-lg mt-1">✓</span>
-                        <div class="text-right">
-                            <p class="text-[10px] text-[#C5A059] font-bold mb-1">امتيازات حصرية</p>
-                            <p class="text-[9px] opacity-70 leading-relaxed">إمكانية الوصول إلى الفرص الاستثمارية الفائقة والمشاركة في القرارات الاستراتيجية للمجلس.</p>
+                <!-- Privileges Info -->
+                <div class="mb-12">
+                    <p class="text-[9px] text-[#C5A059] font-semibold letter-spacing[0.1em] mb-6">المزايا</p>
+                    
+                    <div class="space-y-3">
+                        <div class="privilege-card">
+                            <span class="privilege-icon">◆</span>
+                            <span>إمكانية الوصول إلى الفرص الاستثمارية الفائقة والحصرية</span>
+                        </div>
+                        <div class="privilege-card">
+                            <span class="privilege-icon">◆</span>
+                            <span>المشاركة الكاملة في القرارات الاستراتيجية للمجلس</span>
+                        </div>
+                        <div class="privilege-card">
+                            <span class="privilege-icon">◆</span>
+                            <span>حق التزكية والتصويت على العضويات الجديدة</span>
+                        </div>
+                        <div class="privilege-card">
+                            <span class="privilege-icon">◆</span>
+                            <span>الاتصال المباشر بالمستشارين الماليين الفاخرين</span>
                         </div>
                     </div>
                 </div>
