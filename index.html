@@ -388,6 +388,17 @@
             font-size: 0.9rem;
             margin-right: 6px;
         }
+        /* إلغاء شريط التمرير مع الحفاظ على الوظيفة */
+        .view, .overflow-y-auto, #app-frame {
+            -ms-overflow-style: none;  /* لمتصفح Edge */
+            scrollbar-width: none;     /* لمتصفح Firefox */
+        }
+
+        .view::-webkit-scrollbar, 
+        .overflow-y-auto::-webkit-scrollbar,
+        #app-frame::-webkit-scrollbar {
+            display: none;             /* لمتصفحات Chrome و Safari */
+        }
     </style>
 </head>
 <body class="flex justify-center items-center min-h-screen">
